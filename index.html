@@ -1,0 +1,32 @@
+<html>
+    <script>
+        function populateDiv(){
+            const a = document.getElementById("firstnumber").value;
+            const b = document.getElementById("secondnumber").value;
+            const element = document.getElementById("finalSum") 
+            element.innerHTML = parseInt(a)+ parseInt(b);
+
+        }
+    </script>
+    <body>
+        <input id="firstnumber" type="text" placeholder="First Number"></input><br></br>
+        <input id="secondnumber" type="text" placeholder="Second Number"></input><br></br>
+        <button onclick="populateDiv()">Calculate Sum</button><br></br>
+        <div id="finalSum"></div>
+    </body>
+</html>
+
+
+ <!-- 
+classes and ID 
+
+classes let you get rid of code repetition
+id has to be unique for div/span
+Id let you access elements via DOM API 
+ 
+So it is difficult make page dynamic , like scrolling page to get new conent or clicking button to 
+print new html on page 
+
+For this we need DOM, and javascript with logic to do operations according to need 
+ 
+ -->

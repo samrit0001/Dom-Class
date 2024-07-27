@@ -1,0 +1,8 @@
+DOM
+Document object Model 
+
+It is progrmming interface for web documents. Represents page so that programs can change the document 
+structure, style, content. 
+DOM represents documet as tree of objects, each object represents part of page
+ 
+This is not Part of ECMA Script rather it is part of Browser Js
