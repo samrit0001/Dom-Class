@@ -2,11 +2,31 @@
     <script>
         function populateDiv(){
             const a = document.getElementById("firstnumber").value;
-            const b = document.getElementById("secondnumber").value;
-            const element = document.getElementById("finalSum") 
-            element.innerHTML = parseInt(a)+ parseInt(b);
+            const b  = document.getElementById("secondnumber").value;
+            // const element = document.getElementById("finalSum") 
+            // element.innerHTML = parseInt(a)+ parseInt(b);
 
+            //fetch ,it is part of browser code , new alternaive is axios
+            // fetch has to be async call , so it is awaiting promise 
+            fetch("https://sum-server.100xdevs.com/sum?a="+a+"&b="+b) 
+                .then(function(response){
+                    console.log(response);
+                    response.text()
+                        .then(function(ans){
+                            console.log(ans);
+                             document.getElementById("finalSum").innerHTML = ans;
+                        })
+                });
         }
+        async function populateDiv2(){
+            const a = document.getElementById("firstnumber").value;
+            const b = document.getElementById("secondnumber").value;
+            
+            const response = await fetch("https://sum-server.100xdevs.com/sum?a=" + a + "&b=" + b)
+            const ans = await response.text();
+            document.getElementById("finalSum").innerHTML= ans;
+        }   
+        
     </script>
     <body>
         <input id="firstnumber" type="text" placeholder="First Number"></input><br></br>
@@ -29,4 +49,12 @@ print new html on page
 
 For this we need DOM, and javascript with logic to do operations according to need 
  
+
+Others ways to select 
+
+document.querySelector("#finalSum")
+document.querySelector("#div")
+document.querySelectorAll("div")
+
+document.getElementByClassName  ,  this returns in array format so can [0] to select specific
  -->
