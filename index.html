@@ -25,14 +25,43 @@
             const response = await fetch("https://sum-server.100xdevs.com/sum?a=" + a + "&b=" + b)
             const ans = await response.text();
             document.getElementById("finalSum").innerHTML= ans;
-        }   
+        } 
+        
+        async function populateinterest(){
+            const a =document.getElementById("principal").value;
+            const b =document.getElementById("rate").value;
+            const c = document.getElementById("time").value;
+            
+            const response = await fetch("https://sum-server.100xdevs.com/interest?principal="+a+"&rate="+b+"&time="+c)
+            const ans= await response.json();
+            console.log(ans);
+            console.log(ans.total);
+            console.log(ans.interest);
+            document.getElementById("totalvalue").innerHTML="Total is :"+ ans.total;
+            document.getElementById("totalinterest").innerHTML ="Interest is :"+ ans.interest;
+
+        }
         
     </script>
     <body>
+        <h1>Calculate Sum</h1>
         <input id="firstnumber" type="text" placeholder="First Number"></input><br></br>
         <input id="secondnumber" type="text" placeholder="Second Number"></input><br></br>
         <button onclick="populateDiv()">Calculate Sum</button><br></br>
         <div id="finalSum"></div>
+
+        <br></br>
+
+        <h1>Calculate Interest Rate</h1>
+        <input id="principal" type="text" placeholder="Principal amount"></input><br></br>
+        <input id="rate" type="text" placeholder="Interest Rate"></input><br></br>
+        <input id="time" type="text" placeholder="Time"></input><br></br>
+        <button onclick="populateinterest()">Calculate Interest</button><br></br>
+        <div id="totalvalue"></div><br></br>
+        <div id="totalinterest"></div><br></br>
+
+
+        https://sum-server.100xdevs.com/interest?principal=100&rate=5&time=2
     </body>
 </html>
 
