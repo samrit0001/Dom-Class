@@ -3,6 +3,26 @@ Document object Model
 
 It is programming interface for web documents. Represents page so that programs can change the document 
 structure, style, content. 
-DOM represents documet as tree of objects, each object represents part of page
+DOM represents document as tree of objects, each object represents part of page
  
 This is not Part of ECMA Script rather it is part of Browser Js
+
+
+Debounccing and Throttling 
+
+
+Debounccing (Delayed sending of request)
+Problem Statement :
+so like we don't have calculte button , so whenever someone type something in the box
+request goes out to backend to calculate and get back answer 
+
+Now when we are typing it is continously sending requests to backend , putting load on it 
+
+example like on amazon.com  , now if we start typing it gives us suggesstion on our search in bar
+but if i start typing fast , it somehow knows he is typing let him type and after few seconds or
+when he stops we can send request to backend 
+
+
+Throttling is the same thing on the backend 
+
+

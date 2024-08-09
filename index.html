@@ -1,5 +1,16 @@
 <html>
     <script>
+
+        let timeout;
+        function debouncepopulate(){
+             // how to cancel a clock ?
+             //clearTimeout
+
+             clearTimeout(timeout);
+             timeout = setTimeout(function(){
+                populateDiv()
+             },1000);
+        }
         function populateDiv(){
             const a = document.getElementById("firstnumber").value;
             const b  = document.getElementById("secondnumber").value;
@@ -44,13 +55,13 @@
         
     </script>
     <body>
-        <h1>Calculate Sum</h1>
+        <!-- <h1>Calculate Sum</h1>
         <input id="firstnumber" type="text" placeholder="First Number"></input><br></br>
         <input id="secondnumber" type="text" placeholder="Second Number"></input><br></br>
         <button onclick="populateDiv()">Calculate Sum</button><br></br>
         <div id="finalSum"></div>
 
-        <br></br>
+        <br></br> -->
 
         <h1>Calculate Interest Rate</h1>
         <input id="principal" type="text" placeholder="Principal amount"></input><br></br>
@@ -60,6 +71,12 @@
         <div id="totalvalue"></div><br></br>
         <div id="totalinterest"></div><br></br>
 
+        <h1>Calculate Sum with Debounccing</h1>
+        <input oninput="debouncepopulate()" id="firstnumber" type="text" placeholder="First Number"></input><br></br>
+        <input oninput="debouncepopulate()" id="secondnumber" type="text" placeholder="Second Number"></input><br></br>
+        <div id="finalSum"></div>
+        
+        
 
         https://sum-server.100xdevs.com/interest?principal=100&rate=5&time=2
     </body>
